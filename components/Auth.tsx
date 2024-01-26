@@ -12,7 +12,7 @@ interface InputLabelProp {
 }
 
 const InputLabel = ({ name, text, type, setter }: InputLabelProp) => (
-    <div className='mt-2'>
+    <div className='mt-2 text-15px vs:text-base'>
         <label
             htmlFor={name}
             className='font-medium'
@@ -38,15 +38,15 @@ const Auth = () => {
     const isLogin = pathname === '/login';
 
     return (
-        <section className='min-h-screen bg-dim py-5 px-3 flex items-center justify-center'>
-            <div className='bg-white max-w-md w-full shadow-second rounded-lg p-5'>
+        <section className='min-h-screen bg-dim py-5 px-1 vs:px-3 flex items-center justify-center'>
+            <div className='bg-white max-w-md w-full shadow-second rounded-lg p-4 vs:p-5'>
                 <img
                     src="/images/logos/main-logo.svg"
                     alt="ApexGuard"
-                    className='h-40px mx-auto'
+                    className='h-35px vs:h-40px mx-auto'
                 />
-                <p className='w-full flex items-center justify-center h-1px my-5 bg-grey'>
-                    <span className='text-primary px-3 bg-white text-darkgrey'>
+                <p className='w-full flex items-center justify-center h-1px my-4 vs:my-5 bg-grey'>
+                    <span className='text-primary px-3 text-15px vs:text-base bg-white text-darkgrey'>
                         {isLogin ? 'WELCOME BACK' : 'GET STARTED'}
                     </span>
                 </p>
@@ -73,11 +73,11 @@ const Auth = () => {
                     />
                     <button
                         type="submit"
-                        className='w-full px-3 py-2 rounded-sm bg-primary text-white mt-5 transition-bg duration-300 hover:bg-primarydark hover:shadow-first'
+                        className='w-full px-3 py-2 rounded-sm text-15px vs:text-base bg-primary text-white mt-4 vs:mt-5 transition-bg duration-300 hover:bg-primarydark hover:shadow-first'
                     >
                         {isLogin ? 'Login' : 'Signup'}
                     </button>
-                    <div className='flex justify-between mt-2 font-medium'>
+                    <div className='flex justify-between text-15px vs:text-base mt-2 font-medium'>
                         <div>
                             {isLogin ? 'New to us?' : 'Already joined?'}
                         </div>

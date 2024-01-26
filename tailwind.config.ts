@@ -15,11 +15,13 @@ const config: Config = {
             },
             spacing: {
                 '1px': '1px',
+                '35px': '35px',
                 '40px': '40px',
                 '45px': '45px',
                 '50px': '50px',
             },
             colors: {
+                'primarylight': '#15803d',
                 'primary': '#244b23',
                 'primarydark': '#173616',
                 'secondary': '#beccea',
@@ -30,6 +32,9 @@ const config: Config = {
                 'normal': '#454545',
                 'grey': '#ccc',
             },
+            fontSize: {
+                '15px': '15px',
+            },
             minHeight: {
                 'rem': 'calc(100vh - 61px)',
             },
@@ -39,11 +44,15 @@ const config: Config = {
             lineHeight: {
                 '40px': '40px',
                 '50px': '50px',
+                '58px': '58px',
             },
             boxShadow: {
                 'first': 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
                 'second': 'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
                 'third': 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px'
+            },
+            screens: {
+                'vs': '460px',
             }
         },
     },
