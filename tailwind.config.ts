@@ -19,6 +19,7 @@ const config: Config = {
                 '40px': '40px',
                 '45px': '45px',
                 '50px': '50px',
+                '60px': '60px',
             },
             colors: {
                 'primarylight': '#15803d',

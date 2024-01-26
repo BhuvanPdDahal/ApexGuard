@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -37,6 +37,14 @@ const Auth = () => {
     const [password, setPassword] = useState('');
     const isLogin = pathname === '/login';
 
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = {
+            name, email, password
+        };
+        console.log(formData);
+    };
+
     return (
         <section className='min-h-screen bg-dim py-5 px-1 vs:px-3 flex items-center justify-center'>
             <div className='bg-white max-w-md w-full shadow-second rounded-lg p-4 vs:p-5'>
@@ -50,7 +58,7 @@ const Auth = () => {
                         {isLogin ? 'WELCOME BACK' : 'GET STARTED'}
                     </span>
                 </p>
-                <form action="">
+                <form onSubmit={handleSubmit}>
                     {!isLogin && (
                         <InputLabel
                             name='name'
