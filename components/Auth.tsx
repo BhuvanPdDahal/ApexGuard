@@ -1,15 +1,11 @@
 "use client";
 
-import { useState, FormEvent } from 'react';
 import Link from 'next/link';
+import { useState, FormEvent } from 'react';
 import { usePathname } from 'next/navigation';
-
-interface InputLabelProp {
-    name: string;
-    text: string;
-    type: string;
-    setter: React.Dispatch<React.SetStateAction<string>>;
-}
+import { InputLabelProp } from '@interfaces/auth';
+import { useDispatch } from 'react-redux';
+import { login, signup } from '@api';
 
 const InputLabel = ({ name, text, type, setter }: InputLabelProp) => (
     <div className='mt-2 text-15px vs:text-base'>
@@ -32,6 +28,7 @@ const InputLabel = ({ name, text, type, setter }: InputLabelProp) => (
 
 const Auth = () => {
     const pathname = usePathname();
+    const dispatch: any = useDispatch();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -42,7 +39,14 @@ const Auth = () => {
         const formData = {
             name, email, password
         };
-        console.log(formData);
+        let response;
+        if(isLogin) {
+            response = dispatch(login(formData));
+        } else {
+            response = dispatch(signup(formData));
+        }
+        console.log(response);
+        
     };
 
     return (
