@@ -1,11 +1,12 @@
 "use client";
 
 import Link from 'next/link';
-import { useState, FormEvent } from 'react';
-import { usePathname } from 'next/navigation';
-import { InputLabelProp } from '@interfaces/auth';
 import { useDispatch } from 'react-redux';
-import { login, signup } from '@api';
+import { usePathname } from 'next/navigation';
+import { useState, FormEvent } from 'react';
+
+import { InputLabelProp } from '@interfaces/auth';
+import { login, signup } from '@redux/actions/auth';
 
 const InputLabel = ({ name, text, type, setter }: InputLabelProp) => (
     <div className='mt-2 text-15px vs:text-base'>
@@ -32,21 +33,23 @@ const Auth = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const isLogin = pathname === '/login';
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsLoading(true);
+        console.log(isLoading);
+        
         const formData = {
             name, email, password
         };
-        let response;
         if(isLogin) {
-            response = dispatch(login(formData));
+            dispatch(login(formData));
         } else {
-            response = dispatch(signup(formData));
+            dispatch(signup(formData));
         }
-        console.log(response);
-        
+        setIsLoading(false);
     };
 
     return (
@@ -87,7 +90,17 @@ const Auth = () => {
                         type="submit"
                         className='w-full px-3 py-2 rounded-sm text-15px vs:text-base bg-primary text-white mt-4 vs:mt-5 transition-bg duration-300 hover:bg-primarydark hover:shadow-first'
                     >
-                        {isLogin ? 'Login' : 'Signup'}
+                        {isLoading && (
+                            <img
+                                src="/images/assets/loading-secondary.svg"
+                                alt=""
+                                className='h-20px inline mr-1'
+                            />
+                        )}
+                        {isLogin
+                            ? isLoading ? 'Logging in...' : 'Login'
+                            : isLoading ? 'Signing up...' : 'Signup'
+                        }
                     </button>
                     <div className='flex justify-between text-15px vs:text-base mt-2 font-medium'>
                         <div>

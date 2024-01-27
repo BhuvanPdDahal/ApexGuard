@@ -1,16 +1,22 @@
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+
 import User from '@models/User';
 import { connectToDB } from "@utils/database";
-import { ExtendedAuthNextApiRequest } from '@interfaces/auth';
-import { NextApiResponse } from 'next';
 
-export const POST = async (req: ExtendedAuthNextApiRequest, res: NextApiResponse) => {
+export const POST = async (req: Request) => {
     try {
         await connectToDB();
-        const { name, email, password } = req.body;
-        console.log(name, email, password);
-        
-        res.status(200).json({ message: 'Hello' });
-    } catch (error) {
-        res.status(500).json({ message: 'Something went wrong' });
+        const { name, email, password } = await req.json();
+        const userExists = await User.findOne({ email });
+        if(userExists) return new Response('User with this email already exists', { status: 400 });
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+        const newUser = await User.create({ name, email, password: hashedPassword });
+        const token = jwt.sign({ email, id: newUser._id }, process.env.SECRET_KEY || '');
+        return new Response(JSON.stringify({ user: newUser, token }), { status: 200 });
+    } catch (error: any) {
+        console.log(error.message);
+        return new Response('Something went wrong', { status: 500 });
     }
 };

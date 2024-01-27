@@ -1,6 +1,10 @@
 import Link from "next/link";
 
+import { useAppSelector } from "@redux/slices";
+
 const Navbar = () => {
+    // const { user } = useAppSelector((state) => state.auth);
+
     return (
         <nav className='sticky top-0 bg-white px-5 py-2 shadow-second z-10'>
             <div className="max-w-7xl mx-auto flex items-center justify-between">

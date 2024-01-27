@@ -19,12 +19,16 @@ import { FormDataProp } from '@interfaces/auth';
 // import { showAlert } from './alert';
 // import handleError from '@functions/error';
 
-export const signup = (formData: FormDataProp, navigate: any) => async (dispatch: Dispatch<AuthAction>) => {
+export const signup = (formData: FormDataProp) => async (dispatch: Dispatch<AuthAction>) => {
     try {
-        dispatch({ type: START_LOADING, for: AUTH });
+        // dispatch({ type: START_LOADING, for: AUTH });
+        console.log('inside signup action. formData is: ', formData);
+        
         const { data } = await api.signup(formData);
-        dispatch({ type: SIGNUP, data });
-        dispatch({ type: END_LOADING, for: AUTH });
+        console.log('Data: ', data);
+        
+        // dispatch({ type: SIGNUP, data });
+        // dispatch({ type: END_LOADING, for: AUTH });
         // showAlert(signup_success, success, dispatch);
         // navigate('/');
         
@@ -34,12 +38,12 @@ export const signup = (formData: FormDataProp, navigate: any) => async (dispatch
     }
 };
 
-export const login = (formData: FormDataProp, navigate: any) => async (dispatch: Dispatch<AuthAction>) => {
+export const login = (formData: FormDataProp) => async (dispatch: Dispatch<AuthAction>) => {
     try {
-        dispatch({ type: START_LOADING, for: AUTH });
+        // dispatch({ type: START_LOADING, for: AUTH });
         const { data } = await api.login(formData);
-        dispatch({ type: LOGIN, data });
-        dispatch({ type: END_LOADING, for: AUTH });
+        // dispatch({ type: LOGIN, data });
+        // dispatch({ type: END_LOADING, for: AUTH });
         // showAlert(login_success, success, dispatch);
         // navigate('/');
 
@@ -51,10 +55,10 @@ export const login = (formData: FormDataProp, navigate: any) => async (dispatch:
 
 export const loginWithToken = () => async (dispatch: Dispatch<AuthAction>) => {
     try {
-        dispatch({ type: START_LOADING, for: AUTH });
+        // dispatch({ type: START_LOADING, for: AUTH });
         const { data } = await api.loginWithToken();
-        dispatch({ type: LOGIN, data });
-        dispatch({ type: END_LOADING, for: AUTH });
+        // dispatch({ type: LOGIN, data });
+        // dispatch({ type: END_LOADING, for: AUTH });
 
     } catch (error) {
         dispatch({ type: END_LOADING, for: AUTH });
