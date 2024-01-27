@@ -1,11 +1,13 @@
 import Sidebar from '@components/Sidebar';
+import Income from '@components/Income';
 
-const Income = () => {
+const IncomePage = () => {
     return (
-        <div className='bg-dim'>
+        <div className='flex'>
             <Sidebar />
+            <Income />
         </div>
     )
 };
 
-export default Income;
+export default IncomePage;

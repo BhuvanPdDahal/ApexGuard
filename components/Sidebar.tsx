@@ -20,7 +20,7 @@ const Sidebar = () => {
     const pathname = usePathname();
 
     return (
-        <section className='h-screen w-280px bg-white flex flex-col shadow-second'>
+        <section className='sticky top-0 z-10 h-screen w-250px bg-white flex flex-col shadow-second'>
             <header className='border-b border-solid border-grey px-3 py-1'>
                 <img
                     src="/images/logos/main-logo.svg"
@@ -106,7 +106,7 @@ const Sidebar = () => {
                 </li>
             </ul>
             <footer className='border-t border-solid border-grey p-2'>
-                <Link href='/login' className='w-full flex items-center justify-center gap-1 py-1 rounded-md transition-bg duration-300 hover:bg-dim'>
+                <Link href='/login' className='w-full flex items-center justify-center gap-1 py-1 text-normal rounded-md transition-bg duration-300 hover:bg-dim'>
                     <RiLogoutBoxRLine size={20} className="inline" />
                     Logout
                 </Link>

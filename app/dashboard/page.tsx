@@ -3,7 +3,7 @@ import Dashboard from '@components/Dashboard';
 
 const DashboardPage = () => {
     return (
-        <div className='bg-dim'>
+        <div className='flex'>
             <Sidebar />
             <Dashboard />
         </div>
