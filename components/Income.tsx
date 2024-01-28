@@ -23,7 +23,7 @@ const Income = () => {
             <div className='flex flex-col lg:flex-row gap-5 mt-5'>
                 <InputForm />
                 <ul className='w-full'>
-                    <li className='bg-white flex items-center justify-between p-2 vs:p-3 mt-2 rounded-lg shadow-second'>
+                    <li className='bg-white flex items-center justify-between gap-1 p-2 vs:p-3 mt-2 rounded-lg shadow-second'>
                         <div className='flex items-center gap-3'>
                             <div className='p-2 bg-secondary rounded-md'>
                                 <RiBitCoinFill className='text-27px sm:text-30px' />
@@ -37,7 +37,7 @@ const Income = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='p-1 vs:p-2 rounded-full bg-grey text-normal cursor-pointer hover:bg-darkgrey'>
+                        <div className='p-1 vs:p-2 rounded-full bg-grey text-normal cursor-pointer transition-bg duration-300 hover:bg-darkgrey'>
                             <RiDeleteBin6Line className='h-18px sm:h-20px' />
                         </div>
                     </li>

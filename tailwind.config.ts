@@ -43,6 +43,7 @@ const config: Config = {
                 'medium': '#999',
             },
             fontSize: {
+                '10px': '10px',
                 '13px': '13px',
                 '15px': '15px',
                 '20px': '20px',
@@ -63,7 +64,8 @@ const config: Config = {
             boxShadow: {
                 'first': 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
                 'second': 'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
-                'third': 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px'
+                'third': 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px',
+                'fourth': 'rgba(50, 50, 93, 0.25) 0px -2px 5px -1px, rgba(0, 0, 0, 0.3) 0px -1px 3px -1px',
             },
             screens: {
                 'vs': '460px',
