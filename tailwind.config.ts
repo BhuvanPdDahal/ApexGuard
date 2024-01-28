@@ -24,6 +24,8 @@ const config: Config = {
                 '45px': '45px',
                 '50px': '50px',
                 '60px': '60px',
+                '75px': '75px',
+                '80px': '80px',
                 '200px': '200px',
                 '230px': '230px',
                 '250px': '250px',
@@ -44,6 +46,7 @@ const config: Config = {
             },
             fontSize: {
                 '10px': '10px',
+                '11px': '11px',
                 '13px': '13px',
                 '15px': '15px',
                 '20px': '20px',

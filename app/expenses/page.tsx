@@ -1,11 +1,13 @@
 import Sidebar from '@components/Sidebar';
+import Expenses from '@components/Expenses';
 
-const Expenses = () => {
+const ExpensesPage = () => {
     return (
-        <div className='bg-dim'>
+        <div className='flex'>
             <Sidebar />
+            <Expenses />
         </div>
     )
 };
 
-export default Expenses;
+export default ExpensesPage;
