@@ -1,11 +1,11 @@
-import React from 'react'
+import Header from "./Header";
 
 const Dashboard = () => {
     return (
         <div className='bg-dim flex-1 px-5 py-3'>
-            <header>
-                <h1 className='text-primary font-semibold text-xl'>All Transactions</h1>
-            </header>
+            <Header
+                title='All Transactions'
+            />
             <div className='flex flex-col lg:flex-row gap-5 mt-2'>
                 <div className='w-full'>
                     <div className='bg-white h-200px w-full rounded-lg shadow-second'></div>

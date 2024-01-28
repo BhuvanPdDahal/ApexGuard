@@ -35,6 +35,8 @@ const config: Config = {
                 'dim': '#ebedf2',
                 'normal': '#454545',
                 'grey': '#ccc',
+                'darkgrey': '#aaa',
+                'medium': '#999',
             },
             fontSize: {
                 '15px': '15px',

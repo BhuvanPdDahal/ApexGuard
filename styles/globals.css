@@ -10,3 +10,7 @@
     box-sizing: border-box;
     font-family: 'Manrope', sans-serif;
 }
+
+.border_solid_grey {
+    @apply border border-solid border-grey;
+}
