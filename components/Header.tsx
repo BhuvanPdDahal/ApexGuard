@@ -5,7 +5,7 @@ interface HeaderProp {
 const Header = ({ title }: HeaderProp) => {
     return (
         <header>
-            <h1 className='text-primary font-semibold text-xl'>{title}</h1>
+            <h1 className='text-primary font-semibold vs:text-lg sm:text-xl'>{title}</h1>
         </header>
     )
 };

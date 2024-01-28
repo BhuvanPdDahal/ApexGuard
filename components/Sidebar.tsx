@@ -20,7 +20,7 @@ const Sidebar = () => {
     const pathname = usePathname();
 
     return (
-        <section className='sticky top-0 z-10 h-screen w-250px bg-white flex flex-col shadow-second'>
+        <section className='fixed sm:sticky left-0 bottom-0 sm:top-0 z-10 h-screen w-230px bg-white flex flex-col shadow-second'>
             <header className='border-b border-solid border-grey px-3 py-1'>
                 <img
                     src="/images/logos/main-logo.svg"

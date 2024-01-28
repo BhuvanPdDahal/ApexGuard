@@ -15,6 +15,9 @@ const config: Config = {
             },
             spacing: {
                 '1px': '1px',
+                '2px': '2px',
+                '13px': '13px',
+                '18px': '18px',
                 '20px': '20px',
                 '35px': '35px',
                 '40px': '40px',
@@ -22,6 +25,7 @@ const config: Config = {
                 '50px': '50px',
                 '60px': '60px',
                 '200px': '200px',
+                '230px': '230px',
                 '250px': '250px',
             },
             colors: {
@@ -39,7 +43,11 @@ const config: Config = {
                 'medium': '#999',
             },
             fontSize: {
+                '13px': '13px',
                 '15px': '15px',
+                '20px': '20px',
+                '27px': '27px',
+                '30px': '30px',
             },
             minHeight: {
                 'rem': 'calc(100vh - 61px)',
