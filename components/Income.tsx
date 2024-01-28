@@ -4,7 +4,7 @@ import HistoryBox from './HistoryBox';
 
 const Income = () => {
     return (
-        <div className='bg-dim flex-1 px-3 vs:px-4 sm:px-5 pt-2 vs:pt-3 pb-75px vs:pb-80px sm:pb-3'>
+        <div className='bg-dim min-h-screen flex-1 px-3 vs:px-4 sm:px-5 pt-2 vs:pt-3 pb-75px vs:pb-80px sm:pb-3'>
             <Header
                 title='Incomes'
             />

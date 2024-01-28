@@ -1,11 +1,13 @@
 import Sidebar from '@components/Sidebar';
+import Profile from '@components/Profile';
 
-const Profile = () => {
+const ProfilePage = () => {
     return (
-        <div className='bg-dim'>
+        <div className='flex'>
             <Sidebar />
+            <Profile />
         </div>
     )
 };
 
-export default Profile;
+export default ProfilePage;
