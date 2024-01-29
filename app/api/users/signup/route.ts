@@ -9,7 +9,7 @@ export const POST = async (req: Request) => {
         await connectToDB();
         const { name, email, password } = await req.json();
         const userExists = await User.findOne({ email });
-        if(userExists) return new Response('User with this email already exists', { status: 400 });
+        if(userExists) return new Response(JSON.stringify({ message: 'User with this email already exists' }), { status: 400 });
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
         const newUser = await User.create({ name, email, password: hashedPassword });
@@ -17,6 +17,6 @@ export const POST = async (req: Request) => {
         return new Response(JSON.stringify({ user: newUser, token }), { status: 200 });
     } catch (error: any) {
         console.log(error.message);
-        return new Response('Something went wrong', { status: 500 });
+        return new Response(JSON.stringify({ message: "Something went wrong" }), { status: 500 });
     }
 };

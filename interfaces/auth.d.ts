@@ -32,13 +32,8 @@ export interface State {
     token: string;
 }
 
-interface Data {
+export interface Action {
+    for?: string;
     user?: User;
     token?: string;
-}
-
-export interface Action {
-    type: string;
-    for?: string;
-    data?: Data;
 }

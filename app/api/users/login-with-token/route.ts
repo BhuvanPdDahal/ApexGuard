@@ -17,6 +17,6 @@ export const POST = async (req: ExtendedRequest) => {
         return new Response(JSON.stringify({ user, token }), { status: 200 });
     } catch (error: any) {
         console.log(error.message);
-        return new Response('Something went wrong', { status: 500 });
+        return new Response(JSON.stringify({ message: "Something went wrong" }), { status: 500 });
     }
 };

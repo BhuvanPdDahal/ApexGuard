@@ -13,20 +13,20 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        startLoading: (state: State, action: Action) => {
-            if(action?.for !== AUTH) return state;
+        startLoading: (state, action: PayloadAction<Action>) => {
+            if(action?.payload?.for !== AUTH) return state;
             return { ...state, isLoading: true };
         },
-        endLoading: (state: State, action: Action) => {
-            if(action?.for !== AUTH) return state;
-            return { ...state, isLoading: true };
+        endLoading: (state, action: PayloadAction<Action>) => {
+            if(action?.payload?.for !== AUTH) return state;
+            return { ...state, isLoading: false };
         },
-        sign: (state: State, action: Action) => {
-            localStorage.setItem('ApexGuardToken', action?.data?.token || '');
+        sign: (state, action: PayloadAction<Action>) => {
+            localStorage.setItem('ApexGuardToken', action?.payload?.token || '');
             return {
                 ...state,
-                user: action?.data?.user || null,
-                token: action?.data?.token || ''
+                user: action?.payload?.user || null,
+                token: action?.payload?.token || ''
             };
         },
         logout: () => {

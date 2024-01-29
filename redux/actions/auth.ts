@@ -1,66 +1,59 @@
-import { Dispatch } from 'redux';
-
 import * as api from '@api';
-import { Action as AuthAction } from '@interfaces/auth';
 // import { Action as AlertAction } from '@interfaces/alert';
 import {
-    START_LOADING,
-    END_LOADING
-} from '@constants/action';
+    startLoading,
+    endLoading,
+    sign,
+    logout
+} from '@redux/slices/auth';
 import {
-    AUTH,
-    SIGNUP,
-    LOGIN,
-    signup_success,
-    login_success
+    AUTH
 } from '@constants/auth';
 // import { success } from '@constants/alert';
-import { FormDataProp } from '@interfaces/auth';
+import { FormDataProp, Action } from '@interfaces/auth';
+import { AppDispatch } from '@redux/slices';
 // import { showAlert } from './alert';
 // import handleError from '@functions/error';
 
-export const signup = (formData: FormDataProp) => async (dispatch: Dispatch<AuthAction>) => {
+const payload = { for: AUTH };
+
+export const signup = (formData: FormDataProp, router: any) => async (dispatch: AppDispatch) => {
     try {
-        // dispatch({ type: START_LOADING, for: AUTH });
+        dispatch(startLoading(payload));
         console.log('inside signup action. formData is: ', formData);
-        
         const { data } = await api.signup(formData);
         console.log('Data: ', data);
-        
-        // dispatch({ type: SIGNUP, data });
-        // dispatch({ type: END_LOADING, for: AUTH });
-        // showAlert(signup_success, success, dispatch);
-        // navigate('/');
-        
+        dispatch(sign(data));
+        dispatch(endLoading(payload));
+        router.push('/dashboard');
     } catch (error) {
-        dispatch({ type: END_LOADING, for: AUTH });
-        // handleError(error, dispatch);
+        console.log(error);
+        
+        dispatch(endLoading(payload));
     }
 };
 
-export const login = (formData: FormDataProp) => async (dispatch: Dispatch<AuthAction>) => {
+export const login = (formData: FormDataProp, router: any) => async (dispatch: AppDispatch) => {
     try {
-        // dispatch({ type: START_LOADING, for: AUTH });
+        dispatch(startLoading(payload));
+        console.log('inside signup action. formData is: ', formData);
         const { data } = await api.login(formData);
-        // dispatch({ type: LOGIN, data });
-        // dispatch({ type: END_LOADING, for: AUTH });
-        // showAlert(login_success, success, dispatch);
-        // navigate('/');
-
+        console.log('Data: ', data);
+        dispatch(sign(data));
+        dispatch(endLoading(payload));
+        router.push('/dashboard');
     } catch (error) {
-        dispatch({ type: END_LOADING, for: AUTH });
-        // handleError(error, dispatch);
+        dispatch(endLoading(payload));
     }
 };
 
-export const loginWithToken = () => async (dispatch: Dispatch<AuthAction>) => {
+export const loginWithToken = () => async (dispatch: AppDispatch) => {
     try {
-        // dispatch({ type: START_LOADING, for: AUTH });
+        dispatch(startLoading(payload));
         const { data } = await api.loginWithToken();
-        // dispatch({ type: LOGIN, data });
-        // dispatch({ type: END_LOADING, for: AUTH });
-
+        dispatch(sign(data));
+        dispatch(endLoading(payload));
     } catch (error) {
-        dispatch({ type: END_LOADING, for: AUTH });
+        dispatch(endLoading(payload));
     }
 };

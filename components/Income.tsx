@@ -16,9 +16,9 @@ const Income = () => {
                 <InputForm
                     btnText='Add income'
                 />
-                <div>
+                <div className='w-full'>
                     <h2 className='text-normal font-semibold text-15px vs:text-base sm:text-lg'>Recent History</h2>
-                    <ul className='w-full'>
+                    <ul>
                         <HistoryBox />
                     </ul>
                 </div>
