@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { usePathname } from "next/navigation";
 import {
     RiDashboardLine,
@@ -16,8 +18,21 @@ import {
     RiLogoutBoxRLine
 } from "@remixicon/react";
 
+import { useAppSelector } from "@redux/slices";
+import { loginWithToken } from "@redux/actions/auth";
+
 const Sidebar = () => {
     const pathname = usePathname();
+    const dispatch: any = useDispatch();
+    const token = localStorage.getItem('ApexGuardToken');
+
+    useEffect(() => {
+        if(!user && token) {
+            dispatch(loginWithToken());
+        }
+    }, []);
+
+    const { user } = useAppSelector((state) => state.auth);
 
     return (
         <>

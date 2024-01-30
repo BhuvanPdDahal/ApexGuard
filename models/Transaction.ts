@@ -5,7 +5,19 @@ enum Types {
     expense = 'expense'
 }
 
+enum Categories {
+    freelancing = 'freelancing',
+    investment = 'investment',
+    stocks = 'stocks',
+    bitcoin = 'bitcoin',
+    other = 'other'
+}
+
 const TransactionSchema = new Schema({
+    type: {
+        type: Types,
+        required: true
+    },
     title: {
         type: String,
         required: [true, 'Title is required!'],
@@ -19,8 +31,8 @@ const TransactionSchema = new Schema({
         type: String,
         required: [true, 'Date is required!']
     },
-    type: {
-        type: Types,
+    category: {
+        type: Categories,
         required: true
     },
     comment: {

@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 import User from '@models/User';
 import { connectToDB } from "@utils/database";
-import { RequestBody } from '@interfaces/auth';
+import { FormDataProp as RequestBody } from '@interfaces/auth';
 
 export const POST = async (req: Request) => {
     try {
