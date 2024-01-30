@@ -14,8 +14,10 @@ export interface FormDataProp {
     password: string;
 }
 
-export interface ExtendedAuthNextApiRequest extends NextApiRequest {
-    body: FormDataProp;
+export interface RequestBody {
+    name: string;
+    email: string;
+    password: string;
 }
 
 export interface User {

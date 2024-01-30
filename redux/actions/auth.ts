@@ -28,7 +28,6 @@ export const signup = (formData: FormDataProp, router: any) => async (dispatch: 
         router.push('/dashboard');
     } catch (error) {
         console.log(error);
-        
         dispatch(endLoading(payload));
     }
 };

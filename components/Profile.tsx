@@ -11,7 +11,7 @@ const Profile = () => {
                 <p className="text-center text-medium">Joined at 2024/01/29</p>
                 <div className="flex justify-center gap-4 mt-2">
                     <button className="bg-tertiary text-white px-3 py-2 rounded-sm hover:bg-tertiarydark hover:shadow-first">Edit profile</button>
-                    <button className="bg-tertiary text-white px-3 py-2 rounded-sm hover:bg-tertiarydark hover:shadow-first">Settigs</button>
+                    <button className="bg-tertiary text-white px-3 py-2 rounded-sm hover:bg-tertiarydark hover:shadow-first">Settings</button>
                 </div>
             </div>
         </div>

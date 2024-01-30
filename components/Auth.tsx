@@ -93,6 +93,7 @@ const Auth = () => {
                     <button
                         type="submit"
                         className='w-full px-3 py-2 rounded-sm text-15px vs:text-base bg-primary text-white mt-4 vs:mt-5 transition-bg duration-300 hover:bg-primarydark hover:shadow-first'
+                        disabled={isLoading}
                     >
                         {isLoading && (
                             <img
